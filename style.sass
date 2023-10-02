@@ -1,0 +1,781 @@
+@import './assets/css/reset'
+
+
+$color-shark: #292D32
+$color-gray: #838383
+$color-white: #FFF
+$color-black: #000
+$color-blue: #48A4EB
+
+$profile-transition-time: .5s
+
+@font-face
+    font-family: 'EuclidCircularA'
+    src: url('/assets/fonts/Euclid Circular A Bold.ttf')
+    font-weight: 700
+    font-style: normal
+@font-face
+    font-family: 'EuclidCircularA'
+    src: url('/assets/fonts/Euclid Circular A Light.ttf')
+    font-weight: 100
+    font-style: normal
+@font-face
+    font-family: 'EuclidCircularA'
+    src: url('/assets/fonts/Euclid Circular A Medium.ttf')
+    font-weight: 300
+    font-style: normal
+@font-face
+    font-family: 'EuclidCircularA'
+    src: url('/assets/fonts/Euclid Circular A SemiBold.ttf')
+    font-weight: 600
+    font-style: normal
+
+html,
+body
+    height: 100%
+    font-family: 'Roboto', sans-serif
+    font-weight: 400
+    font-size: 16px
+    display: flex
+    flex-direction: column
+    overflow-x: hidden
+
+body
+    &.lock
+        overflow: hidden
+        &::before
+            content: ''
+            overflow: hidden
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 90px
+            z-index: 101
+            left: 0
+            right: 0
+            bottom: 0
+            background: rgba(63, 63, 63, 0.50)
+
+
+    
+
+
+// each of 6 sections are in own container
+.container
+    max-width: 1440px
+    width: 100%
+    padding: 0 20px
+    margin: 0 auto
+
+// everything except footer
+.content
+    flex: 1 0 auto
+
+
+.header
+    max-width: 1440px
+    width: 100%
+    padding: 0 20px
+    margin: 0 auto
+
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 7.69rem //123px
+    &__logo
+        margin-right: 3.75rem  // 60px 
+        max-width: 4.375rem     // 70px 
+    &__left
+        display: flex
+        align-items: center
+    &__link
+        margin-right: 2.8125rem  // 45px 
+        color: $color-shark
+        font-size: 0.9375rem     // 15px 
+        text-transform: uppercase
+        &:last-child
+            margin-right: 0
+    &__nav
+        display: flex
+        transition: 0.5s ease
+    &__search
+        margin-left: 3.125rem    // 50px 
+        margin-right: auto
+    &__name
+        margin-right: 1.25rem    // 20px 
+        color: #000
+        font-size: 1.25rem       // 20px 
+        line-height: 150%
+    &__buttons
+        display: flex
+        align-items: center
+    &__button
+        position: relative
+        margin-right: 1.875rem    // 30px 
+        &:last-child
+            margin-right: 0
+        &.menu
+            display: none
+    &__count
+        position: absolute
+        top: -0.125rem           // -2px 
+        right: 0
+        width: 1rem              // 16px 
+        height: 1rem             // 16px 
+        border-radius: 50%
+        background-color: $color-blue
+        display: flex
+        align-items: center
+        justify-content: center
+        font-family: Roboto
+        font-size: 0.75rem       // 12px 
+        font-weight: 700
+        color: $color-white
+    &__heart
+        width: 1.5rem            // 24px
+        height: 1.5rem           // 24px 
+    &__heartbg
+        position: relative
+        width: 3.0625rem         // 49px 
+        height: 3.0625rem        // 49px 
+        background-color: #F9F9F9
+        border-radius: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+    &__profile
+        position: relative
+        &:hover
+            .profile
+                transform: scale(1)
+                transition: all $profile-transition-time
+
+    
+
+.suggestions
+    display: flex
+    position: relative
+    padding-left: max(1.25rem, calc((100% - 87.5rem) / 2)) // 20px
+    height: 42.6875rem // 683px
+    background-color: #F2F2F2
+    &::before
+        content: ''
+        width: 47.90725rem // 766px
+        height: 12.6rem // 201px
+        z-index: 1
+        background-image: url('./assets/images/dell-bg.svg')
+        position: absolute
+        top: 6.125rem // 97px
+        left: max(1.25rem, calc((100% - 87.5rem) / 2)) // 20px
+    &__wrapper
+        position: relative
+        display: inline-flex
+        width: 78.1875rem // 1251px
+    &__scroll
+        display: flex
+        align-items: center
+        writing-mode: vertical-lr
+        transform: rotate(180deg)
+        margin-bottom: 9.875rem // 158px
+        & svg
+            transform: rotate(180deg)
+    &__catalog
+        margin-top: 1.03125rem // 16.5px
+        color: $color-gray
+        font-family: Roboto
+        font-weight: 300
+        white-space: nowrap
+    &__info
+        display: flex
+        z-index: 2
+        flex-direction: column
+        margin-left: 6.5625rem // 105px
+        margin-top: 15.8125rem // 253px
+    &__subtitle
+        display: block
+        color: $color-gray
+        font-size: 1.125rem // 18px
+        font-weight: 300
+        line-height: 133.687%
+        margin-bottom: 0.9375rem // 15px
+    &__title
+        color: $color-shark
+        font-size: 3.125rem // 50px
+        margin-bottom: 3.75rem // 60px
+    &__deal
+        display: flex
+        background-image: url('./assets/images/suggestions-deal.png')
+        background-position: 0 -13.75rem // -220px
+        background-repeat: no-repeat
+        flex-direction: column
+        width: calc(100% - 69.4375rem) // 1111px
+        height: 100%
+        background-color: #F9F9F9
+    &__image
+        display: none
+    &__offer
+        display: inline-block
+        padding-left: 2.5rem // 40px
+        margin-top: 20.0625rem // 321px
+        margin-bottom: 5.125rem // 82px
+        color: $color-shark
+        font-size: 1.5625rem // 25px
+        line-height: 130%
+
+.swiper
+    height: min-content !important
+    max-width: 615px !important
+    width: 100% 
+    z-index: 30 !important
+    margin: 0 
+    margin-top: 74px 
+    &-pagination
+        position: absolute !important
+        top: 326px !important
+        left: 508px !important
+        display: flex !important
+        z-index: 31 !important
+        align-items: center !important
+        &-bullet
+            width: 5px !important
+            height: 5px !important
+            margin: 0 !important
+            margin-right: 10px !important
+            &:last-child
+                margin-right: 0 !important
+            &-active
+                width: 9px !important
+                height: 9px !important
+                background-color: $color-shark !important
+    &-button
+        display: inline-block
+        z-index: 40
+        cursor: pointer
+        position: absolute
+        top: 499px
+        right: -144.5px
+
+.catalog
+    padding: 10.25rem 0 11.25rem 0 // 164px 0 180px 0
+    &__wrapper
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 2.5rem // 40px
+        justify-items: center
+    &__about
+        max-width: 27.5rem // 440px
+        width: 100%
+    &__title
+        color: $color-shark
+        font-size: 3.125rem // 50px
+        line-height: 3.125rem // 50px
+        margin-bottom: 1.8125rem // 29px
+    &__subtitle
+        width: 21.875rem // 350px
+        color: $color-gray
+        font-size: 1.125rem // 18px
+        font-weight: 300
+        line-height: 150%
+    &__more
+        margin-top: 2.875rem // 46px
+    &__item
+        position: relative
+        max-width: 27.5rem // 440px
+        width: 100%
+        height: 23.1875rem // 371px
+        background-color: #F2F2F2
+        border-radius: 1.25rem // 20px
+        &__number
+            position: absolute
+            font-weight: Thin
+            top: 2.5rem // 40px
+            left: 2.5rem // 40px
+            color: $color-shark
+            font-size: 1.5625rem // 25px
+            font-weight: 100
+            line-height: 150%
+        &.notebook
+            & img
+                margin-left: 0.75rem // 12px
+                margin-top: -0.625rem // -10px
+                margin-bottom: 1.8125rem // 29px
+        &.computer
+            & img
+                margin-left: 7.1875rem // 115px
+                margin-top: -1.3125rem // -21px
+                margin-bottom: 2.5625rem // 41px
+        &.server
+            & img
+                margin-left: 3.1875rem // 51px
+                margin-top: 5.0625rem // 81px
+                margin-bottom: 2.875rem // 46px
+        &.emc
+            & img
+                margin-left: 4.6875rem // 75px
+                margin-top: 3.6875rem // 59px
+                margin-bottom: 2.875rem // 46px
+        &.spares
+            & img
+                margin-left: 5.4375rem // 87px
+                margin-top: 2.375rem // 38px
+                margin-bottom: 0.8125rem // 13px
+    &__info
+        padding-left: 40px
+    &__count
+        margin-bottom: 5px
+        color: $color-gray
+        font-size: 18px
+        font-weight: 300
+        line-height: 133.687%
+    &__name
+        color: $color-shark
+        font-size: 25px
+        line-height: 150%
+
+    
+.advantages
+    position: relative
+    padding: 87px 0 46px 0
+    background-color: #F2F2F2
+    &::before
+        content: ''
+        position: absolute
+        background-image: url('./assets/images/best-quality.svg')
+        background-repeat: no-repeat
+        left: max(20px,calc( (100% - 1880px) / 2 ))
+        top: 152px
+        width: 897px
+        height: 346px
+    &__info
+        position: relative
+        z-index: 10
+        display: flex
+        margin-left: -80px
+        margin-bottom: 48px
+    &__about
+        width: 518px
+        margin-left: -80px
+        margin-top: 96px
+    &__title
+        color: $color-shark
+        font-size: 50px
+        line-height: 50px
+        margin-bottom: 37px
+    &__subtitle
+        color: $color-gray
+        font-size: 18px
+        line-height: 150%
+        margin-bottom: 41px
+    &__img
+        width: 874px
+    &__wrapper
+        display: flex
+    &__item
+        overflow: hidden
+        position: relative
+        padding: 30px 10px 30px 30px
+        margin-right: 27px
+        width: 100%
+        max-width: 330px
+        height: 289px
+        background-color: $color-shark
+        border-radius: 20px
+        &:last-child
+            margin-right: 0
+        &::before
+            content: ''
+            position: absolute
+            top: -2px
+            right: -1.5px
+            width: 139.5px
+            height: 90px
+            background-image: url('./assets/images/advantages-line.svg')
+    &__icon
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 70px
+        height: 70px
+        margin-bottom: 25px
+        border-radius: 10px
+        background: #343A41
+    &__name
+        color: $color-white
+        font-family: EuclidCircularA
+        font-size: 22px
+        font-weight: 700
+        margin-bottom: 13px
+    &__text
+        color: #B7B7B7
+        font-family: EuclidCircularA
+        font-weight: 100
+.news
+    padding: 172px 0 180px 0
+    &__wrapper
+        display: grid
+        grid-template-columns: repeat(3,1fr)
+        row-gap: 40px
+        justify-items: center
+    &__top
+        display: flex
+        justify-content: space-between
+        margin-bottom: 70px
+    &__more
+        display: inline-flex
+        align-self: start
+        margin-top: 8px
+        &-text
+            order: -1
+            margin-left: 0
+            margin-right: 17px
+            
+            text-align: right
+    &__info
+        width: 721px
+    &__title
+        color: $color-shark
+        font-size: 50px
+        margin-bottom: 25px
+    &__subtitle
+        color: $color-gray
+        font-size: 18px
+        font-weight: 300
+        line-height: 150%
+    &__item
+        display: block
+        z-index: 100
+        position: relative
+        width: 415px
+        height: 364px
+        filter: drop-shadow(0px 40px 80px rgba(0, 0, 0, 0.05))
+        &::before
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            background-image: url('./assets/images/news-item-bottom.svg')
+            width: 100%
+            height: 146px
+    &__about
+        display: flex
+        flex-wrap: wrap
+        position: relative
+        margin-top: -16px
+        margin-left: 30px
+        z-index: 10
+    &__img
+        border-top-left-radius: 45px
+        height: 259px
+        object-fit: cover
+    &__name
+        color: $color-shark
+        font-size: 25px
+        font-weight: 700
+        line-height: 130%
+        width: 268px
+        margin-right: 10px
+        margin-bottom: 11px
+    &__text
+        color: $color-shark
+        font-size: 14px
+        line-height: 150%
+        flex-basis: 100%
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        max-width: 360px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+    &__button
+        margin-top: -27px
+    &__date
+        position: absolute
+        top: 65px
+        right: -25px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        width: 50px
+        height: 97px
+        border-radius: 15px
+        background: $color-white
+        box-shadow: 6px 6px 30px 0px rgba(0, 0, 0, 0.06)
+    &__cover
+        width: 50px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+    &__day
+        color: $color-shark
+        font-size: 20px
+        font-weight: 900
+        margin-bottom: 7px
+    &__month
+        color: $color-shark
+        font-size: 10px
+        font-weight: 300
+
+.contacts
+    height: 1022px
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        height: 676px
+        background: linear-gradient(0deg, #EEE 0%, #EEE 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 100%), lightgray 0px -382.687px / 100% 205.208% no-repeat
+        width: 100%
+        bottom: 0
+        left: 0
+        right: 0
+    &::after
+        content: ''
+        position: absolute
+        bottom: 20px
+        width: 1635px
+        height: 471px
+        left: max(20px,calc( (100% - 1880px) / 2 ))
+        background-image: url('./assets/images/contacts-bg.svg')
+        background-repeat: no-repeat
+    &__wrapper
+        position: relative
+        z-index: 10
+        display: flex
+        height: 842px
+    &__contacts
+        padding: 100px 0 111px 100px
+        width: 50%
+        height: 100%
+        border-radius: 20px 0px 0px 20px
+        background: #F9F9F9
+    &__title
+        color: $color-shark
+        font-size: 50px
+        line-height: 50px
+        margin-bottom: 18px
+    &__subtitle
+        color: $color-gray
+        line-height: 150%
+        margin-bottom: 48px
+    &__info
+        width: 400px
+        &.adress
+            margin-bottom: 47px
+        &.email
+            margin-bottom: 72px
+        &.phone
+            margin-bottom: 60px
+    &__cover
+        display: flex
+        align-items: center
+        &svg
+            min-width: 36px
+    &__name
+        color: $color-gray
+        font-size: 18px
+        line-height: 133.687%
+        margin-left: 17px
+    &__text
+        color: $color-shark
+        font-size: 22px
+        line-height: 150%
+        margin-left: 55px
+    &__contacts
+        position: relative
+    &__phone
+        position: absolute
+        top: 151px
+        right: -58px
+
+.application
+    width: 50%
+    height: 100%
+    border-radius: 0px 20px 20px 0px
+    background: $color-shark
+    color: $color-white
+    padding: 100px 137px 103px 129px
+    &__title
+        white-space: nowrap
+        font-size: 50px
+        line-height: 50px
+        margin-bottom: 18px
+    &__subtitle
+        line-height: 150%
+        margin-bottom: 65px
+    &__input
+        width: 100%
+        border: 1.5px solid rgba(242, 242, 242, 0.50)
+        border-radius: 20px
+        height: 59px
+        padding: 20px
+        &.wrong
+            border: 1.5px solid red
+    &__cover
+        position: relative
+        margin-bottom: 52.75px
+        &.comment
+            margin-bottom: 57px
+    &__name
+        position: absolute
+        left: 27px
+        top: -9px
+        background-color: $color-shark
+        padding: 0 10px
+        color: #F2F2F2
+        font-size: 18px
+        font-weight: 300
+        line-height: 133.687%
+    &__comment
+        width: 100%
+        border: 1.5px solid rgba(242, 242, 242, 0.50)
+        border-radius: 20px
+        padding: 20px
+        height: 145px
+        resize: none
+        &.wrong
+            border: 1.5px solid red
+
+// FOOTER   
+.footer
+    flex: 0 0 auto
+    padding: 3.75rem 0 2.5rem // 60px 0 40px
+    &__logo
+        margin-right: 11.88rem // 190px
+        margin-top: 1.81rem // 29px
+        width: 7rem // 112px
+        height: 7rem // 112px
+    &__wrapper
+        display: flex
+    &__list
+        margin-right: 11.25rem // 180px
+        width: 13.38rem // 214px
+    &__name
+        color: $color-shark
+        font-size: 1.56rem // 25px
+        margin-bottom: 0.94rem // 15px
+    &__link
+        color: $color-shark
+        font-weight: 300
+        margin-bottom: 0.63rem // 10px
+        &:last-child
+            margin-bottom: 0
+    &__line
+        flex-basis: 100%
+        height: 0.06rem // 1px
+        width: 100%
+        background: #E5E5E5
+        margin-top: 3.75rem // 60px
+    &__cover
+        display: flex
+
+.bottom
+    padding-top: 2.5rem // 40px 
+    align-items: center
+    display: flex
+    justify-content: space-between
+    &__title
+        color: $color-gray
+        line-height: 133.687%
+        margin-bottom: 0.6875rem // 11px 
+    &__text
+        color: $color-shark
+        font-size: 1.125rem // 18px 
+        line-height: 1.5rem // 150% 
+.social
+    &.contacts
+        margin-top: 3.75rem // 60px 
+    &__facebook
+        margin-right: 1.125rem // 18px 
+.more
+    position: relative
+    z-index: 100
+    display: inline-flex
+    align-items: center
+    &__text
+        margin-left: 0.75rem // 12px 
+        line-height: 1.875rem // 30px 
+
+
+
+// MENU
+.menu
+    display: block
+    position: relative
+    width: 2.875rem // 46px 
+    height: 2.875rem // 46px 
+    background-color: #F9F9F9
+    border-radius: 2.875rem // 46px 
+    &::before,&::after
+        transition: all 0.3s ease
+        content: ''
+        background-color: $color-black
+        position: absolute
+        width: 1.125rem // 18px 
+        height: 0.09375rem // 1.5px 
+        border-radius: 1px // 0.0625rem
+        left: 0.875rem // 14px 
+    &::before
+        top: 0.9375rem // 15px 
+    &::after
+        top: 1.9375rem // 31px 
+    & span
+        background-color: $color-black
+        position: absolute
+        width: 1.125rem // 18px 
+        height: 1.5px // 0.09375rem
+        border-radius: 1px //  0.0625rem
+        left: 0.875rem // 14px 
+    &.active
+        &::before
+            transform: rotate(45deg)
+            top: 1.4375rem // 23px 
+        &::after
+            transform: rotate(-45deg)
+            top: 1.4375rem // 23px 
+        & span
+            transform: scale(0)
+
+.profile
+    transform: scale(0)
+    transition: all $profile-transition-time ease-in-out
+    transition-delay: 0.3s
+    top: 88px 
+    left: -180px
+    position: absolute
+    z-index: 300
+    padding: 30px 0 0 30px
+    border-radius: 20px
+    background: $color-white
+    width: calc(375px - 10px)
+    filter: drop-shadow(0px 1.7530173063278198px 9.39116382598877px rgba(0, 0, 0, 0.06)) drop-shadow(0px 14px 75px rgba(0, 0, 0, 0.13))
+    &__info
+        display: flex
+        align-items: center
+        padding-bottom: 30px
+    &__name
+        margin-left: 20px
+    &__line
+        height: 1px
+        margin-left: -30px
+        width: calc(100% + 30px)
+        background: #F2F2F2
+    &__item
+        display: block
+        padding: 20px 0
+    &__text
+        text-align: left
+        font-size: 20px
+        line-height: 150%
+    &__wrapper
+        position: relative
+    &__triangle
+        position: absolute
+        top: -41px
+        left: 162px
+
+
+
+@import './assets/css/media'
